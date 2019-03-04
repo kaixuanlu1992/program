@@ -22,16 +22,15 @@ public class AvroKafkaProducter {
             + "]}";
 
     public static void main(String[] args) throws InterruptedException {
-        Properties props = new Properties();
-        props.put("bootstrap.servers", "www.iteblog.com:9092");
-        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
-
+        Properties kafkaProp=new Properties();
+        kafkaProp.put("bootstrap.servers", "120.79.91.4:9092");
+        kafkaProp.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        kafkaProp.put("value.serializer","org.apache.kafka.common.serialization.ByteArraySerializer");
         Schema.Parser parser = new Schema.Parser();
         Schema schema = parser.parse(USER_SCHEMA);
         Injection<GenericRecord, byte[]> recordInjection = GenericAvroCodecs.toBinary(schema);
 
-        KafkaProducer<String, byte[]> producer = new KafkaProducer<String, byte[]>(props);
+        KafkaProducer<String, byte[]> producer = new KafkaProducer<String, byte[]>(kafkaProp);
 
         for (int i = 0; i < 1000; i++) {
             GenericData.Record avroRecord = new GenericData.Record(schema);
