@@ -5,15 +5,13 @@ import java.util.List;
 
 public class SubString {
     public static void main(String[] args) {
-        String str="iareyouaam";
+        String str="iareyouiam";
         System.out.println(spitString(str, 0,  null));
 
     }
 
-
     /**
-     *
-     *
+     * 字符串分割
      * @param list
 
      * @return
@@ -37,6 +35,13 @@ public class SubString {
         }
     }
 
+    /**
+     * 是否为单词
+     * @param list
+     * @param start
+     * @param i
+     * @return
+     */
     private static boolean isWord(String list, int start, int i) {
         List<String> words=new ArrayList<String>();
         words.add("i");
