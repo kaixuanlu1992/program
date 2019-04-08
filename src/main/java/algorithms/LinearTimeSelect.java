@@ -1,34 +1,36 @@
 package algorithms;
 
-import java.util.Arrays;
-
-/**
- * 快速排序，选择数组的一个元素，将数组分为三部分：小于，等于，大于；然后递归
- */
-public class QuickSort {
+public class LinearTimeSelect {
     public static void main(String[] args) {
         int[] data = {1, 2, 3, 4, 9, 8, 7, 6, 5, 11, 23, 55, 33, 21, 77, 68, 88, 94, 12, 13, 17, 81, 82, 83};
-        quickSort(data, 0, data.length - 1);
-        System.out.println(Arrays.toString(data));
+        int rs = quickSelect(data, 0, data.length - 1, data.length - 1);
+        System.out.println(rs);
     }
 
-    private static void quickSort(int[] data, int start, int end) {
-        if (data == null || start >= end) {
-            return;
+    private static int quickSelect(int[] data, int start, int end, int target) {
+        if (data.length == 1) {
+            return data[0];
         } else {
             int r = partion(data, start, end);
-            quickSort(data, start, r - 1);
-            quickSort(data, r + 1, end);
+            if (r > target) {
+                return quickSelect(data, start, r - 1, target);
+            } else if (r < target) {
+                return quickSelect(data, r + 1, end, target);
+            } else {
+                return data[r];
+            }
         }
     }
 
-    /**
-     * 分割数组
-     * @param data
-     * @param start
-     * @param end
-     * @return
-     */
+        /**
+         * 分割数组
+         *
+         * @param data
+         * @param start
+         * @param end
+         * @return
+         */
+
     private static int partion(int[] data, int start, int end) {
         int j = start;
         for (int i = start; i < end; i++) {
@@ -43,6 +45,7 @@ public class QuickSort {
 
     /**
      * 交换数组位置
+     *
      * @param data
      * @param i
      * @param j
@@ -53,3 +56,4 @@ public class QuickSort {
         data[j] = temp;
     }
 }
+
