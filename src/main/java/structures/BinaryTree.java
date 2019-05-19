@@ -25,15 +25,33 @@ public class BinaryTree<T extends Comparable> {
         return root;
     }
 
-    public void midScan(){
-        midScan(root);
+    public void midOrder(){
+        midOrder(root);
     }
 
-    private void midScan(Node root){
+    private void midOrder(Node root){
         if (root!=null){
-            midScan(root.left);
+            midOrder(root.left);
             System.out.println(root.value);
-            midScan(root.right);
+            midOrder(root.right);
+        }
+    }
+
+    public boolean contain(T key){
+        return contain(key,root)!=null;
+    }
+
+    private Node contain(T key, Node<T> root) {
+        if (root==null){
+            return null;
+        }
+        int compareTo=key.compareTo(root.value);
+        if (compareTo>0){
+            return contain(key,root.right);
+        } else if (compareTo<0){
+            return contain(key,root.left);
+        }else {
+            return root;
         }
     }
 

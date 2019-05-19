@@ -14,7 +14,9 @@ public class Test {
         tree.insert(3);
         tree.insert(66);
         tree.insert(23);
-        tree.midScan();
+        tree.midOrder();
+        System.out.println(tree.contain(15));
+        System.out.println(tree.contain(14));
 
     }
 }
