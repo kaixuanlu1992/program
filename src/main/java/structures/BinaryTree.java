@@ -1,5 +1,9 @@
 package structures;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class BinaryTree<T extends Comparable> {
     public class Node<T extends Comparable>{
         T value;
@@ -32,9 +36,31 @@ public class BinaryTree<T extends Comparable> {
     private void midOrder(Node root){
         if (root!=null){
             midOrder(root.left);
-            System.out.println(root.value);
+            System.out.print(root.value+" ");
             midOrder(root.right);
         }
+    }
+
+    private void levelScan(Node<T> root){
+        LinkedList<Node<T>> list=new LinkedList<>();
+        if (root!=null){
+            list.add(root);
+        }
+        while (!list.isEmpty()){
+            Node<T> temp=list.getFirst();
+            System.out.print(temp.value + "  ");
+            list.removeFirst();
+            if (temp.left!=null){
+                list.add(temp.left);
+            }
+            if (temp.right!=null){
+                list.add(temp.right);
+            }
+        }
+    }
+
+    public void levelScan(){
+        levelScan(root);
     }
 
     public boolean contain(T key){

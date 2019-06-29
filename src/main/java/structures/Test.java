@@ -17,6 +17,7 @@ public class Test {
         tree.midOrder();
         System.out.println(tree.contain(15));
         System.out.println(tree.contain(14));
+        tree.levelScan();
 
     }
 }
