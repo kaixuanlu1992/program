@@ -1,9 +1,0 @@
-{"namespace": "model.avro",
- "type": "record",
- "name": "User",
- "fields": [
-     {"name": "name", "type": "string"},
-     {"name": "age",  "type": ["int", "null"]},
-     {"name": "email", "type": ["string", "null"]}
- ]
-}
