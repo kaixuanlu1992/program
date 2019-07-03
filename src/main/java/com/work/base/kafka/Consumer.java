@@ -11,8 +11,8 @@ public class Consumer {
     public static void main(String[] args){
         Properties kafkaProp=new Properties();
         kafkaProp.put("bootstrap.servers", "120.79.91.4:9092");
-        kafkaProp.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        kafkaProp.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+        kafkaProp.put("key.deserializer","org.apache.kafka.biz.serialization.StringDeserializer");
+        kafkaProp.put("value.deserializer","org.apache.kafka.biz.serialization.StringDeserializer");
         kafkaProp.put("group.id","CountryCounter");
         KafkaConsumer<String, String> consumer = new KafkaConsumer <String, String>(kafkaProp);
         consumer.subscribe(Collections.singletonList("test"));
