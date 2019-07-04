@@ -1,4 +1,4 @@
-package structures;
+package com.work.base.structures;
 
 public class AVLTree<T extends Comparable> {
     private AvlNode root;

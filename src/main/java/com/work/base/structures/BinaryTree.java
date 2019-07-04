@@ -40,7 +40,7 @@ public class BinaryTree<T extends Comparable> {
     }
 
     private void levelScan(Node<T> root){
-        LinkedList<Node<T>> list=new LinkedList<>();
+        LinkedList<Node<T>> list=new LinkedList<Node<T>>();
         if (root!=null){
             list.add(root);
         }
@@ -81,7 +81,7 @@ public class BinaryTree<T extends Comparable> {
 
     private Node<T> insert(T key, Node<T> root){
         if (root==null){
-            return new Node<>(key,null,null);
+            return new Node<T>(key,null,null);
         }
         int compareRs =key.compareTo(root.value);
         if (compareRs>0){
