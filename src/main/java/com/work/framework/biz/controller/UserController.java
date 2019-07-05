@@ -1,5 +1,6 @@
 package com.work.framework.biz.controller;
 
+import com.work.framework.biz.common.exception.BizException;
 import com.work.framework.biz.model.TSysUser;
 import com.work.framework.biz.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -14,10 +15,11 @@ public class UserController {
 
     @PostMapping("/user")
     @ApiOperation("iiii")
-    public void insert(){
+    public void insert() throws BizException {
         TSysUser tSysUser=new TSysUser();
         tSysUser.setUserName("kjk");
         tSysUser.setPhone("12456");
         userService.insert(tSysUser);
+        throw new BizException("biz exception");
     }
 }
