@@ -15,14 +15,14 @@ public class MyControllerAdvice {
      * @param ex
      * @return
      */
-    @ResponseBody
-    @ExceptionHandler(value = Exception.class)
-    public Map exceptionHandler(Exception ex){
-        Map map=new HashMap();
-        map.put("code",1003);
-        map.put("msg",ex.getMessage());
-        return map;
-    }
+//    @ResponseBody
+//    @ExceptionHandler(value = Exception.class)
+//    public Map exceptionHandler(Exception ex){
+//        Map map=new HashMap();
+//        map.put("code",1003);
+//        map.put("msg",ex.getMessage());
+//        return map;
+//    }
 
     /**
      * 把值绑定到Model中，使全局@RequestMapping可以获取到该值
