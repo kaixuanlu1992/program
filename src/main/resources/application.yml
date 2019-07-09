@@ -14,7 +14,28 @@ spring:
       max-active: 100
       max-idle: 10
       max-wait: 100000
-    timeout: 0
+      timeout: 0
+  data:
+    mongodb:
+      uri: mongodb://120.79.91.4:27017/mydb
+  cloud:
+    stream:
+      binders:
+        test:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                addresses: 10.0.20.132
+                port: 5672
+                username: root
+                password: root
+                virtual-host: /unicode-pay
+  bindings:
+    testOutPut:
+      destination: testRabbit
+      content-type: application/json
+      default-binder: test
 
 server:
   port: 8080
