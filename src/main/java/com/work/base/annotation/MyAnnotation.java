@@ -1,4 +1,4 @@
-package com.work.base.model;
+package com.work.base.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,5 +8,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyAnnotation {
-    int value();
+    String name() default "name";
+    int value() default 1;
 }
