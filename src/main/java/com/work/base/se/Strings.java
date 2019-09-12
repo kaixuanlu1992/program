@@ -13,19 +13,20 @@ public class Strings {
 //        strings.regex();
 //        strings.split();
 //        strings.pattern();
-        strings.pattern();
+//        strings.pattern();
+        strings.wentt();
     }
 
     void regex() {
         System.out.println("\\");
-        System.out.println("1234".matches("-?\\d+"));
-        System.out.println("+1234".matches("(-|\\+)?\\d+"));
     }
 
     //split:将字符串从正则表达式匹配的地方切开
     void split() {
         System.out.println(Arrays.toString(string.split(" ")));
-        System.out.println(Arrays.toString(string.split("\\W+")));
+
+        System.out.println("1234".matches("-?\\d+"));
+        System.out.println("+1234".matches("(-|\\+)?\\d+"));        System.out.println(Arrays.toString(string.split("\\W+")));
         System.out.println(Arrays.toString(string.split(",\\W+")));
     }
 
@@ -74,6 +75,19 @@ public class Strings {
             for (int i = 0; i <= m.groupCount(); i++) {
                 System.out.println("[group: " + i + "  " + m.group(i) + "]");
             }
+        }
+    }
+
+    void wentt(){
+        Pattern p=Pattern.compile("([\\u4E00-\\u9FA5]+[A-Z])[-~_]([A-Z])");
+        String[] str={"荧光棒Y-B","荧光Y-C","荧光棒1_B","荧光棒m~H","荧光棒M~H"};
+        for (String s:str) {
+            Matcher m=p.matcher(s);
+                while (m.find()) {
+                    for (int i = 1; i <= m.groupCount(); i++) {
+                        System.out.println("[group: " + i + "  " + m.group(i) + "]");
+                    }
+                }
         }
     }
 }
