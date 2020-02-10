@@ -1,4 +1,4 @@
-package com.work.base.annotation;
+package com.work.base.se.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

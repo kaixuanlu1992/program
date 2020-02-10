@@ -14,7 +14,16 @@ public class Strings {
 //        strings.split();
 //        strings.pattern();
 //        strings.pattern();
-        strings.wentt();
+//        strings.wentt();
+        strings.strBuffer();
+    }
+
+
+    void strBuffer(){
+        StringBuilder stringBuilder = new StringBuilder(10);
+        stringBuilder.append(true).append(1.23);
+
+        System.out.println((char)stringBuilder.codePointAt(3));
     }
 
     void regex() {

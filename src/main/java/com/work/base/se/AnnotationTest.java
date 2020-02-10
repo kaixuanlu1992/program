@@ -1,6 +1,6 @@
 package com.work.base.se;
 
-import com.work.base.annotation.MyAnnotation;
+import com.work.base.se.annotation.MyAnnotation;
 import com.work.base.model.Student;
 
 import java.lang.reflect.Field;

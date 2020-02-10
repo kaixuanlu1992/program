@@ -1,6 +1,6 @@
 package com.work.base.model;
 
-import com.work.base.annotation.MyAnnotation;
+import com.work.base.se.annotation.MyAnnotation;
 import lombok.Data;
 
 @Data
