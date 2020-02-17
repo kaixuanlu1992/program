@@ -5,18 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
 @Data
 @ApiModel
 @NoArgsConstructor
 @AllArgsConstructor
-public class TSysUser  {
-    private Integer id;
-    private String userName;
-    private String phone;
+public class CustomErrorType {
+    private Integer code;
 
-    List<TSysRole> roleList;
+    private String message;
 
 }

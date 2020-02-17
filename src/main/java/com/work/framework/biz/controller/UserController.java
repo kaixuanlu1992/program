@@ -3,6 +3,7 @@ package com.work.framework.biz.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.work.framework.biz.common.exception.BizException;
 import com.work.framework.biz.model.TSysUser;
+import com.work.framework.biz.model.User;
 import com.work.framework.biz.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/user")
-    @ApiOperation("iiii")
-    public void insert() throws BizException {
-        TSysUser tSysUser=new TSysUser();
-        tSysUser.setUserName("kjk");
-        tSysUser.setPhone("1245226");
-        userService.insert(tSysUser);
-        throw new BizException("biz exception");
+    @ApiOperation("insert")
+    public void insert(User user) throws BizException {
+        userService.insert(user);
     }
 
     @PostMapping("test/redis")
@@ -35,7 +32,7 @@ public class UserController {
     @GetMapping("test/mongodb")
     @ApiOperation("iiii")
     public int testMongo() throws JsonProcessingException {
-        userService.testMongodb();
+//        userService.testMongodb();
         return 0;
     }
 }

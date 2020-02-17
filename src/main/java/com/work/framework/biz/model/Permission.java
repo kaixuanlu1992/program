@@ -5,12 +5,21 @@ import lombok.Data;
 
 @Data
 @ApiModel
-public class User {
+public class Permission  {
+
     private Long id;
 
-    private String username;
 
-    private String password;
+    private String url;
+
+
+    private String name;
+
+
+    private String description;
+
+
+    private Long pid;
 
 
 }

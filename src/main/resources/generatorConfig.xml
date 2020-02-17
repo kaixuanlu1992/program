@@ -21,7 +21,7 @@
         </commentGenerator>
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://120.79.91.4:3306/mywork?characterEncoding=utf-8"
+                connectionURL="jdbc:mysql://127.0.0.1:3306/mydb?characterEncoding=utf-8"
                 userId="root"
                 password="123456"/>
 
@@ -35,7 +35,19 @@
         <javaClientGenerator targetPackage="com.work.framework.biz.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
 
         <!-- table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符 -->
-        <table tableName="t_sys_user">
+        <table tableName="role">
+            <!-- 是否只生成POJO对象 -->
+            <property name="modelOnly" value="false"/>
+        </table>
+        <table tableName="permission">
+            <!-- 是否只生成POJO对象 -->
+            <property name="modelOnly" value="false"/>
+        </table>
+        <table tableName="user_role">
+            <!-- 是否只生成POJO对象 -->
+            <property name="modelOnly" value="false"/>
+        </table>
+        <table tableName="role_permission">
             <!-- 是否只生成POJO对象 -->
             <property name="modelOnly" value="false"/>
         </table>

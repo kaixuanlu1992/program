@@ -5,18 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
 @Data
 @ApiModel
 @NoArgsConstructor
 @AllArgsConstructor
-public class TSysUser  {
+public class TSysRole {
     private Integer id;
-    private String userName;
-    private String phone;
-
-    List<TSysRole> roleList;
-
+    private String name;
 }

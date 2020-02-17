@@ -1,20 +1,24 @@
 package com.work.framework.biz.common.exception;
 
+import com.work.framework.biz.model.CustomErrorType;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice
-
-public class MyControllerAdvice {
-    /**
-     * 全局异常捕捉处理,可以指定包，指定异常类型
-     * @param ex
-     * @return
-     */
+public class MyControllerAdvice extends ResponseEntityExceptionHandler {
+//    /**
+//     * 全局异常捕捉处理,可以指定包，指定异常类型
+//     * @param ex
+//     * @return
+//     */
 //    @ResponseBody
 //    @ExceptionHandler(value = Exception.class)
 //    public Map exceptionHandler(Exception ex){
@@ -36,5 +40,20 @@ public class MyControllerAdvice {
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){
         webDataBinder.setDisallowedFields("id");
+    }
+
+    @ExceptionHandler(BizException.class)
+    @ResponseBody
+    ResponseEntity<?> handleControllerException(HttpServletRequest request, Throwable ex) {
+        HttpStatus status = getStatus(request);
+        return new ResponseEntity<>(new CustomErrorType(status.value(), ex.getMessage()), status);
+    }
+
+    private HttpStatus getStatus(HttpServletRequest request) {
+        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        if (statusCode == null) {
+            return HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+        return HttpStatus.valueOf(statusCode);
     }
 }

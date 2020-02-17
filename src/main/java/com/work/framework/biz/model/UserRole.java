@@ -3,14 +3,13 @@ package com.work.framework.biz.model;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
-@Data
 @ApiModel
-public class User {
-    private Long id;
+@Data
+public class UserRole {
 
-    private String username;
+    private Long userId;
 
-    private String password;
 
+    private Long roleId;
 
 }

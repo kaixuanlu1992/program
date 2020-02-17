@@ -2,7 +2,7 @@ spring:
   application:
     name: myWork
   datasource:
-      url: jdbc:mysql://120.79.91.4:3306/mywork?useUnicode=true&characterEncoding=utf8
+      url: jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&characterEncoding=utf8
       username: root
       password: 123456
       driver-class-name: com.mysql.jdbc.Driver
@@ -15,9 +15,9 @@ spring:
       max-idle: 10
       max-wait: 100000
       timeout: 0
-  data:
-    mongodb:
-      uri: mongodb://120.79.91.4:27017/mydb
+  #data:
+  #  mongodb:
+  #   uri: mongodb://120.79.91.4:27017/mydb
   cloud:
     stream:
       binders:
@@ -36,9 +36,27 @@ spring:
       destination: testRabbit
       content-type: application/json
       default-binder: test
+  security:
+    user:
+      name: user
+      password: user
 
 server:
   port: 8080
 
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
+
+
+
+#debug: true
+
+
+
+logging:
+  file:
+    name: D:\mylog
+my:
+  servers:
+    - dev.example.com
+    - another.example.com
