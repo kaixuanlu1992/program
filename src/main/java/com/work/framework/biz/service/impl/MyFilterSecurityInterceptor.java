@@ -14,7 +14,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
 
-@Component
+//@Component
 public class MyFilterSecurityInterceptor extends AbstractSecurityInterceptor {
     @Autowired
     private FilterInvocationSecurityMetadataSource securityMetadataSource;

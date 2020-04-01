@@ -1,5 +1,7 @@
 package com.work.base.se;
 
+import org.apache.kafka.common.protocol.types.Field;
+
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,7 +17,10 @@ public class Strings {
 //        strings.pattern();
 //        strings.pattern();
 //        strings.wentt();
-        strings.strBuffer();
+//        strings.strBuffer();
+        String str1 ="abc";
+        String str2 ="abc";
+        System.out.println(str1==str2);
     }
 
 

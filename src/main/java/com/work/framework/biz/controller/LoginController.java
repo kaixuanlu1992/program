@@ -26,31 +26,31 @@ import java.io.IOException;
 @RestController
 @Slf4j
 public class LoginController {
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    /**
-     * 登录接口
-     */
-//    @PostMapping(value = "/login")
-    public String login(@RequestBody User user, HttpServletRequest request) throws IOException {
-        String username = user.getUsername();
-        String password = user.getPassword();
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-        try {
-            //使用SpringSecurity拦截登陆请求 进行认证和授权
-            Authentication authenticate = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
-
-            SecurityContextHolder.getContext().setAuthentication(authenticate);
-            //使用redis session共享
-            HttpSession session = request.getSession();
-            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "redirect:login-error?error=2";
-        }
-        return "登录成功";
-    }
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
+//
+//    /**
+//     * 登录接口
+//     */
+////    @PostMapping(value = "/login")
+//    public String login(@RequestBody User user, HttpServletRequest request) throws IOException {
+//        String username = user.getUsername();
+//        String password = user.getPassword();
+//        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
+//        try {
+//            //使用SpringSecurity拦截登陆请求 进行认证和授权
+//            Authentication authenticate = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+//
+//            SecurityContextHolder.getContext().setAuthentication(authenticate);
+//            //使用redis session共享
+//            HttpSession session = request.getSession();
+//            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext()); // 这个非常重要，否则验证后将无法登陆
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return "redirect:login-error?error=2";
+//        }
+//        return "登录成功";
+//    }
 
 
 
